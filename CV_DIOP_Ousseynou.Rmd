@@ -1,0 +1,133 @@
+---
+title: "curricum vitae DIOP_Ousseynou"
+author: "DIOP Ousseynou"
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # css: ['dd_cv.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: false
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+---
+
+Aside
+================================================================================
+
+
+![DIOP Ousseynou](DIOP_Ousseynou.jpg){width=70%}
+
+
+Contact  {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> cherifdiop684@gmail.com
+- <i class="fa fa-github"></i> [OusseynouDIOP16](https://github.com/yulijia)
+- <i class="fa fa-phone"></i> +221 77 834 09 16
+- <i class="fa fa-twitter"></i>
+[`@`Ousseynu_16](https://twitter.com/blog_SLR)
+- <i class="fa fa-instagram"></i>
+[`@`Cherif_Ousseynou_DIOP_00](https://fontawesome.com/icons/instagram?f=brands&s=solid)
+- Pour plus d'information, s'il vous plait , contactez moi par mail.
+
+
+
+Centre d'intérêt {#skills}
+--------------------------------------------------------------------------------
+- <i class="fa fa-book-open"></i> **Elève ingénieur statisticien économiste a l'ENSAE** 
+- <i class="fa fa-book-open"></i> **Mathématicien** 
+- <i class="fa fa-book-open"></i> **Littéraire** 
+- <i class="fa fa-book-open"></i> **Astro-Statistique** 
+- <i class="fa fa-book-open"></i> **Sport** 
+
+Langues  {#Langues}
+--------------------------------------------------------------------------------
+
+- Francais: écrire,lire et parler
+
+- Anglais : écrire, lire et parler
+
+- WOLOF : écrire,lire et parler
+
+
+Main
+================================================================================
+
+DIOP Ousseynou {#title}
+--------------------------------------------------------------------------------
+
+### Elève Ingénieur Statisticien Economiste
+
+Actuellement élève ingénieur statisticien économiste en deuxième année a l'Ecole 
+nationale de la Statistique et de l'Analyse économique ENSAE Pierre NDIAYE, je 
+suis passioné par l'analyse  et le traitement des données.
+<br>
+N'hesitez pas à me contacter pour discuter de votre projet.
+
+
+Diplômes et Formations {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### Elève Ingénieur Statisticien Economiste
+
+Prépa 2: ISEP2    
+
+l'ENSAE Pierre NDIAYE 
+
+2022-2023
+
+
+###  Elève Ingénieur Statisticien Economiste
+
+Prépa 1: ISEP1    
+
+l'ENSAE Pierre NDIAYE 
+
+2021-2022
+
+
+Compétences {#skills}
+--------------------------------------------------------------------------------
+
+### **ANALYSES STATISTIQUES**  
+<br>
+Statistiques descriptives,regression lineaire,...
+
+N/A
+
+N/A
+
+###  **REPORTING**  
+<br>
+Rédaction du **rapport d'analyses statistiques**,  création de support de **présentation des résultats**, **rédaction** du **chapitre "analyses statistiques"** de **publications**, création de **représentations graphiques**.
+
+N/A
+
+N/A
+
+### **DATA-ANALYSE / DATA-SCIENCE**
+<br>
+**Nettoyage** et **manipulation** des données (dplyr), **data-visualisation** (ggplot2, plotly), , **machine learning** , **reproductibilité** (rmarkdown), **cartographie**.
+
+N/A
+
+N/A
+
+
+
+
+ Experiences professionelles {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+###  **CONCEPTION QUESTIONNAIRE, TRAITEMENT ET ANALYSE DES DONNEES, REDACTION DU RAPPORT**
+<br>
+- L'ENQUETE SUR LES CONDITIONS DE VIE SOCIALE DES ETUDIANTS SENEGALAIS DE L'ENSAE.
+<br>
+
+###  **COURS A DOMICILE MATHEMATIQUE**
+<br>
+- Cours de mathématiques pour les collégiens et les lyciens.
+
+<br>
+<br>
+Dernière mise à  jour : `r Sys.Date()`.
