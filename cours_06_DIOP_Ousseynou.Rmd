@@ -1,0 +1,187 @@
+---
+title: "Cours 06:Manipulation des données"
+author: "DIOP_Ousseynou"
+date: '2023-04-16'
+output:
+  pdf_document:
+    number_sections: true
+    keep_tex: true
+    latex_engine: xelatex
+    geometry: "margin=1in"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Manipulation des données 
+### Importation
+
+
+
+```{r cars}
+datapath <- "C:\\Users\\dell\\Desktop\\ENSAE\\ISEP2\\Semestre_2\\Programmation R\\EHCVM"
+library(haven)
+cereal <- read_dta(file = paste0(datapath,"\\cereales.dta"))
+```
+### Autre méthode d'importation des données avec la bibliothèque Foreign
+
+- library(foreign)
+- cereal1 <- read.dta(file = paste0(datapath,"\\cereales.dta"),
+  convert.dates = TRUE, convert.factors = TRUE)
+
+## Comprendre la structure des données 
+ 
+
+```{r pressure, echo=FALSE}
+dim(cereal) # dim()` always displays the number of rows first,
+```
+
+## followed by the number of columns.
+
+```{r}
+names(cereal) # donne le nom des colones 
+str(cereal) # donne la structuration des données, 
+```
+
+# fourni un résumé utile et compact de sa structure interne.
+## alternative à str() avec The dplyr package offers a slightly different flavor of str().
+```{r}
+library(dplyr)
+glimpse(cereal)
+```
+
+## une autre façon de voir globalement la structuration
+
+```{r}
+summary(cereal)  # plus exhaustive ; 
+```
+## Voir les données 
+
+```{r}
+head(cereal, n=15) # affiche les 15 premières lignes; 
+tail(cereal, n=10) # affiche les 10 dernières lignes
+View(cereal) # affiche la base (en quelques lignes)
+```
+# Convertir en data frame
+
+```{r}
+typeof(cereal)
+class(cereal)
+cereal_df <- data.frame(cereal)
+class(cereal_df)
+```
+
+## charger la table de conversion
+
+```{r}
+tableconversion <- "C:\\Users\\dell\\Desktop\\ENSAE\\ISEP2\\Semestre_2\\Programmation R\\EHCVM\\ressource"
+library(readxl)
+Sys.setenv(TZ='GMT') # set time zone
+base_table <- read_excel(paste0(tableconversion,"\\Table_de_conversion_phase_2.xlsx"))
+str(base_table)
+base_table <- data.frame(base_table)
+```
+## Renomer les variables 
+```{r}
+colnames(cereal_df) # affiche le nom des variables 
+```
+
+#library(tidyverse)
+```{r}
+library(tidyverse)
+```
+
+## typeof(cereal_df$s07Bq03a_cereales) <- double
+
+
+```{r}
+cereal_df <- rename(cereal_df, poids=s07Bq03a_cereales)
+glimpse(cereal_df)
+colnames(cereal_df)
+```
+
+## limite ne prend pas un vecteur ???
+## Renomer avec select()
+- library(dplyr)
+- df_cereal <- select(cereal_df,autre_cereal=s07Bq02_autre_cereales)
+
+```{r}
+
+```
+
+## renommer avec colnames
+```{r}
+old_name <- colnames(cereal_df)[1:14]
+old_name
+new_name <- c(old_name[1],old_name[2],old_name[3],"autre_cereales", "quanite_cons", 
+              "unites_cons","taille_cons","provenance_auto","provenance_other",
+              "freq_achat","quatite_achat", 
+              "unite_achat","taille_achat","value_lastachat")
+isTRUE(length(new_name)==length(old_name)) # véfie si les longeurs sont idtique
+```
+
+# check
+
+```{r}
+colnames(cereal_df)
+```
+# renomer l'ensemble
+
+```{r}
+colnames(cereal_df) <- new_name
+colnames(cereal_df)
+```
+
+# renomer l'ensemble
+
+
+```{r}
+colnames(cereal_df) <- new_name
+colnames(cereal_df)
+```
+## renomer une seule varaible
+
+```{r}
+colnames(cereal_df)[3] <- "cereales_id1"
+names(cereal_df)
+```
+## labelisation des modalités 
+# avec la bibliotheque lessR
+
+
+```{r}
+library(lessR)
+cereal_df <- label(quanite_cons, "La quantité consommée des 7 derniers jours", data=cereal_df)
+cereal_df <- label(cereales_id1, "Le produit consommé", data=cereal_df)
+cereal_df <- label(autre_cereales, "Le produit consommé, autre à préciser", data=cereal_df)
+cereal_df <- label(unites_cons, "l'unité de la quantité consommée", data=cereal_df)
+cereal_df <- label(taille_cons, "la taille de l'unité de la quantité consommée", data=cereal_df)
+cereal_df <- label(provenance_auto, "La provenance de la consommation (autoconsommation)", data=cereal_df)
+cereal_df <- label(provenance_other, "Autre provenance", data=cereal_df)
+cereal_df <- label(freq_achat, "La fréquence d'achat du produit", data=cereal_df)
+cereal_df <- label(quatite_achat, "La quantité acheté", data=cereal_df)
+cereal_df <- label(unite_achat, "L'unité de la qqtité acheté", data=cereal_df)
+cereal_df <- label(taille_achat, "la taille de la de l'unité de la quantité acheté", data=cereal_df)
+cereal_df <- label(value_lastachat, "La valueur de la quantité acheté", data=cereal_df)
+```
+
+## verification 
+##label(quanite_cons, data = cereal_df)
+```{r}
+db(cereal_df)
+```
+## Recoder les modalités 
+
+```{r}
+typeof(cereal_df$cereales_id1) # double donc numeric
+summary(cereal_df$cereales_id1) # 
+
+table(cereal_df$s07Bq03c_cereales)
+edit (cereal_df$s07Bq03c_cereales)
+```
+
+
+
+
+
